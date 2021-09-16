@@ -2,6 +2,8 @@
 ![CI badge](https://img.shields.io/github/languages/code-size/silverlogix/MicroPython-T-Watch?style=flat-square)
 ![CI badge](https://img.shields.io/tokei/lines/github/silverlogix/MicroPython-T-Watch?style=flat-square)
 
+<h3> </h3>
+
 MicroPython for the TTGO T-Watch 2020 v1
 =======================
 <h2>w/ ST7789 C driver & axp202 driver</h2>
