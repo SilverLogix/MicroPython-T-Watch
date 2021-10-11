@@ -12,5 +12,5 @@ MicroPython for the TTGO T-Watch 2020 v1
 </p>
 <h3> </h3>
 <h3>
-<A HREF="https://github.com/SilverLogix/MicroPython-T-Watch/releases/tag/v1.1">Latest Update</a>
+<A HREF="https://github.com/SilverLogix/MicroPython-T-Watch/releases/tag/v1.1.1">Latest Update</a>
 </h3>
