@@ -1,26 +1,38 @@
-from c_network import *
 
-import debug
-import machine
+
+from debug import b_print
+from machine import Pin
+from machine import SPI
+from machine import freq
+
 import gc
 import random
 import utime
 import _thread as thread
-import gfx
-from gfx import *
+import st7789 as st
 
-# --------- Variables --------- #
+# ----------- Variables ------------ #
 
+#
 
 # -------- Init main code ---------- #
 
-# gfx.micrologo()
+tft = st.ST7789(
+    SPI(1, baudrate=30000000, sck=Pin(18), mosi=Pin(19)),
+    135, 240,
+    reset=Pin(23, Pin.OUT),
+    cs=Pin(5, Pin.OUT),
+    dc=Pin(16, Pin.OUT),
+    backlight=Pin(4, Pin.OUT),
+    rotation=3)
 
-# STA('SSID', 'PASS')
-# AP("ESP32-AP", 2, True)
+tft.init()
+
+b_print()
+tft.fill(tft.BLACK)
 
 # noinspection PyArgumentList
-machine.freq(80000000)  # set the CPU frequency to 80 MHz
+freq(160_000000)  # set the CPU frequency to 80 MHz
 
 gc.collect()
 
@@ -53,26 +65,6 @@ def scr_test():
         thread.exit()
 
 
-tft.fill(gfx.BLACK)
-alarm_0 = 0
-
-
-def draw():
-    while True:
-        global alarm_0
-        # gfx.triangle(43, 30, 40, 90, 80, 120, st.color565(200,200,200))
-
-        ddd = debug.showVoltage()
-        rrr = debug.raw_temp()
-        fff = debug.m_freq()
-
-        A = alarm_0 + 1
-
-        gfx.text_long("Sensor", ddd, rrr, "", fff, "", "", A, gfx.WHITE, gfx.BLACK)
-        utime.sleep_ms(1000)
-
-
 # --------- Main Code ---------- #
 
-# thread.start_new_thread(scr_test, ())
-thread.start_new_thread(draw, ())
+thread.start_new_thread(scr_test, ())

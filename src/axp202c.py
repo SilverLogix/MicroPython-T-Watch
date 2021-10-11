@@ -1,8 +1,8 @@
-'''
+"""
 axp20x.py - MicroPython library for X-Power AXP202 chip.
 Created by Lewis he on June 24, 2019.
 github:https://github.com/lewisxhe/AXP202X_Libraries
-'''
+"""
 
 import gc
 from machine import Pin, I2C
